@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Awareness | Save Lives, Share Hope</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --light-red: #ff6659;
+            --dark-red: #9a0007;
+            --light-bg: #f9f9f9;
+            --dark-text: #333;
+            --light-text: #666;
+            --white: #ffffff;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            background-color: var(--white);
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            color: var(--dark-red);
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title:after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--primary-red);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary-red);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn:hover {
+            background-color: var(--dark-red);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-red);
+            color: var(--primary-red);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 8px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark-text);
+            font-weight: 500;
+            transition: var(--transition);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-red);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-red);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1576160498461-6a59d1d533c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 12rem 0;
+            margin-top: 70px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            color: white;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Blood Groups */
+        .blood-groups {
+            background-color: var(--light-bg);
+        }
+
+        .blood-types {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blood-type-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .blood-type-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .blood-type-card h3 {
+            font-size: 1.8rem;
+            color: var(--primary-red);
+            margin-bottom: 0.5rem;
+        }
+
+        .compatibility-table {
+            overflow-x: auto;
+            margin-top: 3rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: var(--shadow);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: center;
+            border: 1px solid #eee;
+        }
+
+        th {
+            background-color: var(--primary-red);
+            color: white;
+        }
+
+        .can-receive {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+
+        /* Eligibility Checker */
+        .eligibility-form {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .eligibility-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .eligibility-card {
+            background: var(--primary-red);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        /* How to Donate */
+        .donation-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .step-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .step-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .step-icon {
+            font-size: 3rem;
+            color: var(--primary-red);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Donor Stories */
+        .donor-stories {
+            background-color: var(--light-bg);
+        }
+
+        .stories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .story-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .story-card:before {
+            content: '"';
+            font-size: 5rem;
+            color: rgba(211, 47, 47, 0.1);
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .story-content {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .donor-name {
+            font-weight: 600;
+            color: var(--primary-red);
+        }
+
+        /* Impact Section */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .impact-card {
+            text-align: center;
+            padding: 2rem 1.5rem;
+            background: white;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .impact-icon {
+            font-size: 2.5rem;
+            color: var(--primary-red);
+            margin-bottom: 1rem;
+        }
+
+        /* How to Help */
+        .help-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark-red);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* Call to Action */
+        .cta-section {
+            background: linear-gradient(to right, var(--primary-red), var(--dark-red));
+            color: white;
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .cta-section h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .cta-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .cta-btns .btn {
+            background-color: white;
+            color: var(--primary-red);
+        }
+
+        .cta-btns .btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-btns .btn-secondary {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 3rem 0 1.5rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary-red);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+            }
+            
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            
+            .nav-links li {
+                margin: 1rem 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .hero-btns, .cta-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+                margin-bottom: 10px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero {
+                padding: 8rem 0;
+            }
+            
+            section {
+                padding: 3rem 0;
+            }
+            
+            .eligibility-form {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <i class="fas fa-heartbeat"></i> BloodLife
+                </div>
+                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#blood-groups">Blood Types</a></li>
+                    <li><a href="#eligibility">Eligibility</a></li>
+                    <li><a href="#how-to-donate">How to Donate</a></li>
+                    <li><a href="#stories">Donor Stories</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#contact" class="btn">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Save Lives, Share Hope</h1>
+            <p>Every drop of blood you donate can be the difference between life and death for someone in need. Your simple act of kindness can give someone a second chance at life.</p>
+            <div class="hero-btns">
+                <a href="#eligibility" class="btn">Become a Donor</a>
+                <a href="#find-center" class="btn btn-secondary">Find a Donation Center</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Blood Donation -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Blood Donation</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Blood donation is one of the most selfless acts you can do. Every few seconds, someone, somewhere, needs blood. It could be an accident victim, a cancer patient, a child with anemia, or a mother during childbirth.</p>
+                    <p>Your single donation can help up to three people, providing them with the precious gift of life. Blood cannot be manufactured; it can only come from generous donors like you.</p>
+                    <p>Join the millions of people who donate blood each year and become a hero in someone's story. Your donation doesn't just give blood - it gives hope, time, and life to those who need it most.</p>
+                    <a href="#how-to-donate" class="btn" style="margin-top: 1.5rem;">Learn How to Donate</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blood donation process">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blood Groups and Compatibility -->
+    <section class="blood-groups" id="blood-groups">
+        <div class="container">
+            <h2 class="section-title">Blood Groups and Compatibility</h2>
+            <div class="blood-types">
+                <div class="blood-type-card">
+                    <h3>A+</h3>
+                    <p>Can donate to: A+, AB+</p>
+                    <p>Can receive from: A+, A-, O+, O-</p>
+                </div>
+                <div class="blood-type-card">
+                    <h3>O+</h3>
+                    <p>Most common blood type</p>
+                    <p>Can donate to: All positive types</p>
+                </div>
+                <div class="blood-type-card">
+                    <h3>B+</h3>
+                    <p>Can donate to: B+, AB+</p>
+                    <p>Can receive from: B+, B-, O+, O-</p>
+                </div>
+                <div class="blood-type-card">
+                    <h3>AB+</h3>
+                    <p>Universal plasma donor</p>
+                    <p>Can receive from all blood types</p>
+                </div>
+                <div class="blood-type-card">
+                    <h3>O-</h3>
+                    <p>Universal red cell donor</p>
+                    <p>Can donate to all blood types</p>
+                </div>
+                <div class="blood-type-card">
+                    <h3>AB-</h3>
+                    <p>Rare blood type</p>
+                    <p>Can receive from all negative types</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-top: 3rem;">Blood Compatibility Chart</h3>
+            <div class="compatibility-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Blood Type</th>
+                            <th>Can Donate To</th>
+                            <th>Can Receive From</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>A+</td>
+                            <td>A+, AB+</td>
+                            <td>A+, A-, O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>O+</td>
+                            <td>O+, A+, B+, AB+</td>
+                            <td>O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>B+</td>
+                            <td>B+, AB+</td>
+                            <td>B+, B-, O+, O-</td>
+                        </tr>
+                        <tr>
+                            <td>AB+</td>
+                            <td>AB+</td>
+                            <td>All blood types</td>
+                        </tr>
+                        <tr>
+                            <td>O-</td>
+                            <td>All blood types</td>
+                            <td>O-</td>
+                        </tr>
+                        <tr>
+                            <td>AB-</td>
+                            <td>AB-, AB+</td>
+                            <td>AB-, A-, B-, O-</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Blood Type Matters -->
+    <section id="why-matters">
+        <div class="container">
+            <h2 class="section-title">Why Blood Type Matters</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Blood type compatibility is crucial for safe transfusions. When someone receives blood that isn't compatible with their own, their immune system may attack the donated blood cells, causing a serious reaction.</p>
+                    <p>Each blood type has specific antigens on the surface of red blood cells. If you have type A blood, your body will produce antibodies against type B blood, and vice versa.</p>
+                    <p><strong>Rh factor is equally important:</strong> People with Rh-negative blood can only receive Rh-negative blood, while Rh-positive people can receive both Rh-positive and Rh-negative blood.</p>
+                    <p>That's why O-negative blood is so valuable - it's the universal donor that can be given to anyone in emergency situations when there's no time to check blood type.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Blood testing in lab">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Eligibility Checker -->
+    <section class="blood-groups" id="eligibility">
+        <div class="container">
+            <h2 class="section-title">Who Can Donate</h2>
+            
+            <div class="eligibility-cards">
+                <div class="eligibility-card">
+                    <h3>Age</h3>
+                    <p>18-65 years (16-17 with parental consent in some areas)</p>
+                </div>
+                <div class="eligibility-card">
+                    <h3>Weight</h3>
+                    <p>Minimum 110 lbs (50 kg)</p>
+                </div>
+                <div class="eligibility-card">
+                    <h3>Donation Gap</h3>
+                    <p>56 days between whole blood donations</p>
+                </div>
+                <div class="eligibility-card">
+                    <h3>Health</h3>
+                    <p>Generally good health, no active infections</p>
+                </div>
+            </div>
+            
+            <h3 style="text-align: center; margin-bottom: 1.5rem;">Check Your Eligibility</h3>
+            <div class="eligibility-form">
+                <div class="form-group">
+                    <label for="age">Your Age (in years)</label>
+                    <input type="number" id="age" min="16" max="100" placeholder="Enter your age">
+                </div>
+                <div class="form-group">
+                    <label for="weight">Your Weight (in lbs)</label>
+                    <input type="number" id="weight" min="80" max="400" placeholder="Enter your weight">
+                </div>
+                <div class="form-group">
+                    <label for="lastDonation">Last Donation (months ago)</label>
+                    <input type="number" id="lastDonation" min="0" max="120" placeholder="Enter months since last donation">
+                </div>
+                <button class="btn" id="checkEligibility" style="width: 100%;">Check Eligibility</button>
+                <div id="eligibilityResult" style="margin-top: 1.5rem; padding: 1rem; border-radius: 5px; display: none;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Donate -->
+    <section id="how-to-donate">
+        <div class="container">
+            <h2 class="section-title">How to Donate</h2>
+            <div class="donation-steps">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <h3>1. Registration & Screening</h3>
+                    <p>Complete a donor registration form and answer confidential questions about your health history. We'll check your hemoglobin level and blood pressure.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-hand-holding-heart"></i>
+                    </div>
+                    <h3>2. Donation Process</h3>
+                    <p>A sterile needle is used for blood collection. The actual donation takes about 8-10 minutes, during which you'll give approximately one pint of blood.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h3>3. Rest & Refreshments</h3>
+                    <p>After donating, you'll rest for 10-15 minutes and enjoy snacks and drinks to help your body adjust. This helps prevent lightheadedness.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>4. Safety & Frequency</h3>
+                    <p>All equipment is sterile and used only once. You can donate whole blood every 56 days, platelets every 7 days (up to 24 times a year).</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real Donor Stories -->
+    <section class="donor-stories" id="stories">
+        <div class="container">
+            <h2 class="section-title">Real Donor Stories</h2>
+            <div class="stories-container">
+                <div class="story-card">
+                    <div class="story-content">
+                        "I started donating blood after my father needed transfusions during his cancer treatment. Knowing that strangers helped him inspired me to pay it forward. I've donated 15 times now."
+                    </div>
+                    <div class="donor-name">— Michael, 42</div>
+                </div>
+                <div class="story-card">
+                    <div class="story-content">
+                        "As an O-negative donor, I know my blood type is always in demand. I've been donating every 8 weeks for 5 years. It's become a routine that gives me a sense of purpose."
+                    </div>
+                    <div class="donor-name">— Sarah, 31</div>
+                </div>
+                <div class="story-card">
+                    <div class="story-content">
+                        "I hosted a blood drive at my workplace after learning how many accident victims need blood. We collected 48 units that day - enough to potentially save 144 lives!"
+                    </div>
+                    <div class="donor-name">— David, 56</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact of Your Donation -->
+    <section id="impact">
+        <div class="container">
+            <h2 class="section-title">Impact of Your Donation</h2>
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h3>Emergency Cases</h3>
+                    <p>Your blood can save accident victims who have lost large amounts of blood and need immediate transfusions to survive.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-user-md"></i>
+                    </div>
+                    <h3>Surgeries</h3>
+                    <p>Many surgical procedures require blood on standby. Your donation ensures doctors can perform life-saving operations.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Cancer Treatment</h3>
+                    <p>Chemotherapy patients often need blood transfusions. Your donation helps them continue their fight against cancer.</p>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon">
+                        <i class="fas fa-baby"></i>
+                    </div>
+                    <h3>Childbirth Complications</h3>
+                    <p>Mothers experiencing complications during childbirth may need blood transfusions. Your donation can save both mother and baby.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How You Can Help -->
+    <section class="blood-groups" id="how-to-help">
+        <div class="container">
+            <h2 class="section-title">How You Can Help</h2>
+            <div class="help-cards">
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Share Donor Stories</h3>
+                    <p>Share your donation experience on social media to inspire others. Personal stories are powerful motivators.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Host Blood Drives</h3>
+                    <p>Organize a blood drive at your workplace, school, or community center. We'll help with setup and promotion.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Educate People</h3>
+                    <p>Help dispel myths about blood donation. Educate friends and family about the importance and safety of donating.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>Volunteer at blood donation centers to help with registration, refreshments, or donor support.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I donate if I have tattoos?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, you can donate blood if you have tattoos, provided they were done at a licensed facility in a state that regulates tattoo parlors, and at least 3 months have passed since getting tattooed.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How long does it take to recover after donating?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Most people feel fine immediately after donating. It's recommended to avoid strenuous activity for the rest of the day. Your body replaces the plasma within 24 hours and red cells in 4-6 weeks.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        Can I donate if I'm taking medication?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Most medications don't prevent you from donating. However, some medications for certain conditions may require a waiting period. Please disclose all medications during the screening process.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        What is platelet donation?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Platelet donation (apheresis) is a special kind of donation where only platelets are collected, returning the rest of your blood components to you. It takes about 2 hours and helps cancer patients and surgery patients.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        How is donated blood tested for safety?
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Every blood donation is tested for HIV, hepatitis B and C, syphilis, and other infectious diseases. Donated blood is also typed for ABO and Rh groups. All testing is done in certified laboratories.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>Ready to Donate?</h2>
+            <p>Join thousands of life-savers today. Your donation can give someone more time with their loved ones, more moments to cherish, and more hope for the future.</p>
+            <div class="cta-btns">
+                <a href="#" class="btn" id="find-center">Find Nearby Center</a>
+                <a href="#" class="btn btn-secondary">Book Appointment</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <i class="fas fa-heartbeat"></i> BloodLife
+                    </div>
+                    <p>We're dedicated to connecting donors with those in need, raising awareness about blood donation, and saving lives one donation at a time.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3>Quick Links</h3>
+                    <ul style="list-style: none; padding-left: 0;">
+                        <li style="margin-bottom: 0.8rem;"><a href="#home" style="color: #ccc; text-decoration: none;">Home</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#about" style="color: #ccc; text-decoration: none;">About Donation</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#eligibility" style="color: #ccc; text-decoration: none;">Eligibility</a></li>
+                        <li style="margin-bottom: 0.8rem;"><a href="#faq" style="color: #ccc; text-decoration: none;">FAQ</a></li>
+                    </ul>
+                </div>
+                <div id="contact-form">
+                    <h3>Host a Blood Drive</h3>
+                    <p>Interested in organizing a blood drive in your community?</p>
+                    <form id="hostDriveForm" style="margin-top: 1rem;">
+                        <input type="email" placeholder="Your email" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 4px; border: none;">
+                        <button type="submit" class="btn" style="width: 100%;">Contact Me</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 BloodLife - Blood Donation Awareness. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                
+                // Toggle current answer if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                }
+            });
+        });
+        
+        // Eligibility Checker
+        document.getElementById('checkEligibility').addEventListener('click', function() {
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseInt(document.getElementById('weight').value);
+            const lastDonation = parseInt(document.getElementById('lastDonation').value);
+            const resultDiv = document.getElementById('eligibilityResult');
+            
+            let messages = [];
+            let resultClass = '';
+            
+            if (isNaN(age) || isNaN(weight) || isNaN(lastDonation)) {
+                messages.push("Please fill in all fields with valid numbers.");
+                resultClass = "eligibility-error";
+            } else {
+                // Check age
+                if (age < 18) {
+                    messages.push("You must be at least 18 years old to donate (16-17 with parental consent in some areas).");
+                } else if (age > 65) {
+                    messages.push("Donors over 65 may need doctor's approval in some cases. Please check with your local center.");
+                } else {
+                    messages.push("✓ You meet the age requirement.");
+                }
+                
+                // Check weight
+                if (weight < 110) {
+                    messages.push("You must weigh at least 110 lbs (50 kg) to donate.");
+                } else {
+                    messages.push("✓ You meet the weight requirement.");
+                }
+                
+                // Check donation gap
+                if (lastDonation < 2) {
+                    messages.push("You must wait at least 56 days (8 weeks) between whole blood donations.");
+                } else {
+                    messages.push("✓ You meet the donation frequency requirement.");
+                }
+                
+                // Determine overall eligibility
+                const isEligible = age >= 18 && age <= 65 && weight >= 110 && lastDonation >= 2;
+                
+                if (isEligible) {
+                    messages.push("<strong>Congratulations! You appear to be eligible to donate blood!</strong>");
+                    resultClass = "eligibility-success";
+                    resultDiv.style.backgroundColor = "#e8f5e9";
+                    resultDiv.style.color = "#2e7d32";
+                } else {
+                    messages.push("<strong>Based on your answers, you may not be eligible to donate at this time.</strong> Please contact a donation center for a full screening.");
+                    resultClass = "eligibility-error";
+                    resultDiv.style.backgroundColor = "#ffebee";
+                    resultDiv.style.color = "#c62828";
+                }
+            }
+            
+            resultDiv.innerHTML = messages.join('<br>');
+            resultDiv.style.display = 'block';
+            resultDiv.className = resultClass;
+        });
+        
+        // Find Center Feature
+        document.getElementById('find-center').addEventListener('click', function(e) {
+            e.preventDefault();
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function(position) {
+                    alert(`Based on your location, we've found 3 donation centers nearby:\n\n1. City Blood Center - 2.3 miles away\n2. Community Hospital - 3.1 miles away\n3. Red Cross Center - 4.5 miles away\n\nPlease visit our website for complete details and hours.`);
+                }, function() {
+                    alert("Please enable location services to find centers near you, or visit our website for a complete list of donation centers.");
+                });
+            } else {
+                alert("Geolocation is not supported by this browser. Please visit our website for a complete list of donation centers.");
+            }
+        });
+        
+        // Host Drive Form Submission
+        document.getElementById('hostDriveForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = this.querySelector('input[type="email"]').value;
+            if (email) {
+                alert(`Thank you for your interest in hosting a blood drive! We'll contact you at ${email} within 2 business days with more information.`);
+                this.reset();
+            }
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#home') {
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } else {
+                        const targetElement = document.querySelector(targetId);
+                        if (targetElement) {
+                            const headerHeight = document.querySelector('header').offsetHeight;
+                            const targetPosition = targetElement.offsetTop - headerHeight;
+                            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
